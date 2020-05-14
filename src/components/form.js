@@ -1,4 +1,8 @@
 import { html, define } from 'hybrids';
+// Components
+import  './alert'
+import  './loading'
+
 import { getUser } from '../api';
 
 function setEmail(host, event) {
@@ -7,8 +11,10 @@ function setEmail(host, event) {
   host.show='disabled'
   host.email = event.target.email.value;
   host.contador=0
+
   setTimeout(() => {
     host.email = ""
+    host.show=''
   }, 7000);
 
 }
@@ -22,7 +28,7 @@ function validatedBtn(host, event) {
   host.show = (re.test(event.target.value) ? '' : 'disabled');
 
 }
-export const FormEmail = {
+export const FormComponent = {
   email: '',
   show: 'disabled',
   contador: 0,
@@ -49,21 +55,20 @@ export const FormEmail = {
    
       <button type="submit" disabled=${show} class="btn btn-block mb-2 btn-primary">Send </button>
       <span style="visibility: ${ contador > 3 ? 'visible' : 'hidden'}"> 
-       <div class="alert alert-${show === 'disabled' ? 'danger' : 'primary'} " role="alert"> ${show === 'disabled' ? 'Email no valido' : 'Email Valido'}  </div>
-         
+     
+       <app-alert type="${show === 'disabled' ? 'danger' : 'primary'}"
+                  message="${show === 'disabled' ? 'Email no valido' : 'Email Valido'} ">
+       </app-alert>
+
       </span>
     </form>
     <div class="mt-4"  style="visibility: ${ email.length > 3 ? 'visible' : 'hidden'}" >
     
     ${html.resolve(
     data
-      .then(() => html`<div class="alert alert-primary" role="alert">Datos Correctos </div> `)
-      .catch(() => html`<div class="alert alert-danger" role="alert"> Credenciales Invalidas</div>`),
-    html`
-      <div class="d-flex justify-content-center">
-          <img height="100" class="ml-5 text-center mx-auto" src="https://media1.tenor.com/images/57b62c1192938f43f61a45817166c4e2/tenor.gif" alt="">
-      </div>
-    `,
+      .then(() => html`<app-alert type="primary" message="Credenciales Correctas"></app-alert> `)
+      .catch(() => html`<app-alert type="primary" message="Credenciales no validas"></app-alert> `),
+    html` <app-loading class="d-flex justify-content-center" ></app-loading>   `,
   )}
     </div>
     <hr/>
@@ -75,4 +80,4 @@ export const FormEmail = {
 
 };
 
-define('form-email', FormEmail);
+define('app-form-email', FormComponent);

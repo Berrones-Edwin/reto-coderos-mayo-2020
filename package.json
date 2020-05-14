@@ -1,12 +1,16 @@
 {
   "name": "RetoCoderosMayo",
   "version": "1.0.0",
-  "description": "",
+  "description": "Reto coderos Mayo 2020",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prod": "webpack-dev-server --mode production",
+    "start": "webpack-dev-server --mode development --open --port=8080",
+    "build" : "webpack"
   },
-  "keywords": [],
+  "keywords": [
+    "hybrids"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
