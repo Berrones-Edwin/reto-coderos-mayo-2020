@@ -4,11 +4,11 @@
 
 # Capturas de pantalla
 
-![Captura Pantalla]()
+![Captura Pantalla](https://github.com/Berrones-Edwin/reto-coderos-mayo-2020/blob/master/img1.png)
 
-![Captura Pantalla]()
+![Captura Pantalla](https://github.com/Berrones-Edwin/reto-coderos-mayo-2020/blob/master/img2.png)
 
-![Captura Pantalla]()
+![Captura Pantalla](https://github.com/Berrones-Edwin/reto-coderos-mayo-2020/blob/master/img3.png)
 
 ## HybridsJs
 
